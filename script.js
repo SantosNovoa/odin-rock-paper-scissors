@@ -8,6 +8,13 @@ function getComputerChoice() {
     return console.log(choices[random]);
 }
 
+function getHumanChoice () {
+    let choice = prompt("Enter rock, paper, or scissors!")
+    return console.log(choice);
+}
+
 getComputerChoice()
 getComputerChoice()
 getComputerChoice()
+
+getHumanChoice()
