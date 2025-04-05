@@ -1,5 +1,3 @@
-let humanScore = 0;
-let computerScore = 0;
 
 function getComputerChoice() {
     const choices = ["Rock", "Paper", "Scissors"]
@@ -99,16 +97,20 @@ function playGame() {
         
     }
     
-    let humanSelection = getHumanChoice();
-    let computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection)
+    // //
 
+    // let humanSelection = getHumanChoice();
+    // let computerSelection = getComputerChoice();
+    // playRound(humanSelection, computerSelection)
+    // Game loop
     do  {
         let humanSelection = getHumanChoice();
         let computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
     } while (computerScore < 5 && humanScore < 5)
     
+    // Determines winner 
+
     if (computerScore > humanScore) {
         console.log("\nComputer won.");
     }
