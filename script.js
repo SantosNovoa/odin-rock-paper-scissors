@@ -13,62 +13,131 @@ function getHumanChoice() {
 }
 
 
-function playRound(humanSelection, computerSelection) {
+// function playRound(humanSelection, computerSelection) {
+
+//     console.log(`You chose ${humanSelection} computer chose ${computerSelection}`);
+
+//     if (humanSelection == "rock" && computerSelection == "Paper") {
+//         computerScore++;
+//         console.log(`You lost that round.\nYour score: ${humanScore} \nComputer score: ${computerScore}`);
+//     }
+//     else if (humanSelection == "rock" && computerSelection == "Scissors") {
+//         humanScore++;
+//         console.log(`You won that round!\nYour score: ${humanScore} \nComputer score: ${computerScore}`);
+//     }
+//     else if (humanSelection == "rock" && computerSelection == "Rock") {
+//         console.log(`It's a draw.\nYour score: ${humanScore} \nComputer score: ${computerScore}`);
+//     }
+//     else if (humanSelection == "paper" && computerSelection == "Scissors") {
+//         computerScore++;
+//         console.log(`You lost that round.\nYour score: ${humanScore} \nComputer score: ${computerScore}`);
+//     }
+//     else if (humanSelection == "paper" && computerSelection == "Rock") {
+//         humanScore++;
+//         console.log(`You won that round!\nYour score: ${humanScore} \nComputer score: ${computerScore}`);
+//     }
+//     else if (humanSelection == "paper" && computerSelection == "Paper") {
+//         console.log(`It's a draw.\nYour score: ${humanScore} \nComputer score: ${computerScore}`);
+//     }
+//     else if (humanSelection == "scissors" && computerSelection == "Rock") {
+//         computerScore++;
+//         console.log(`You lost that round.\nYour score: ${humanScore} \nComputer score: ${computerScore}`);
+//     }
+//     else if (humanSelection == "scissors" && computerSelection == "Paper") {
+//         humanScore++;
+//         console.log(`You won that round!\nYour score: ${humanScore} \nComputer score: ${computerScore}`);
+//     }
+//     else if (humanSelection == "scissors" && computerSelection == "Scissors") {
+//         console.log(`It's a draw.\nYour score: ${humanScore} \nComputer score: ${computerScore}`);
+//     }
     
-    if (humanSelection == "rock" && computerSelection == "Paper") {
-        computerScore++;
-        console.log("You lost that round!");
+// }
+
+
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
+
+
+    function playRound(humanSelection, computerSelection) {
+
+        console.log(`\nYou chose ${humanSelection} computer chose ${computerSelection}`);
+    
+        if (humanSelection == "rock" && computerSelection == "Paper") {
+            computerScore++;
+            console.log(`You lost that round.\nYour score: ${humanScore} \nComputer score: ${computerScore}`);
+        }
+        else if (humanSelection == "rock" && computerSelection == "Scissors") {
+            humanScore++;
+            console.log(`You won that round!\nYour score: ${humanScore} \nComputer score: ${computerScore}`);
+        }
+        else if (humanSelection == "rock" && computerSelection == "Rock") {
+            console.log(`It's a draw.\nYour score: ${humanScore} \nComputer score: ${computerScore}`);
+        }
+        else if (humanSelection == "paper" && computerSelection == "Scissors") {
+            computerScore++;
+            console.log(`You lost that round.\nYour score: ${humanScore} \nComputer score: ${computerScore}`);
+        }
+        else if (humanSelection == "paper" && computerSelection == "Rock") {
+            humanScore++;
+            console.log(`You won that round!\nYour score: ${humanScore} \nComputer score: ${computerScore}`);
+        }
+        else if (humanSelection == "paper" && computerSelection == "Paper") {
+            console.log(`It's a draw.\nYour score: ${humanScore} \nComputer score: ${computerScore}`);
+        }
+        else if (humanSelection == "scissors" && computerSelection == "Rock") {
+            computerScore++;
+            console.log(`You lost that round.\nYour score: ${humanScore} \nComputer score: ${computerScore}`);
+        }
+        else if (humanSelection == "scissors" && computerSelection == "Paper") {
+            humanScore++;
+            console.log(`You won that round!\nYour score: ${humanScore} \nComputer score: ${computerScore}`);
+        }
+        else if (humanSelection == "scissors" && computerSelection == "Scissors") {
+            console.log(`It's a draw.\nYour score: ${humanScore} \nComputer score: ${computerScore}`);
+        }
+        
     }
-    else if (humanSelection == "rock" && computerSelection == "Scissors") {
-        humanScore++;
-        console.log("You won that round.");
+    
+    let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection)
+
+    do  {
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    } while (computerScore < 5 && humanScore < 5)
+    
+    if (computerScore > humanScore) {
+        console.log("\nComputer won.");
     }
-    else if (humanSelection == "rock" && computerSelection == "Rock") {
-        console.log("It's a draw.");
-    }
-    else if (humanSelection == "paper" && computerSelection == "Scissors") {
-        computerScore++;
-        console.log("You lost that round!");
-    }
-    else if (humanSelection == "paper" && computerSelection == "Rock") {
-        humanScore++;
-        console.log("You won that round.");
-    }
-    else if (humanSelection == "paper" && computerSelection == "Paper") {
-        console.log("It's a draw.");
-    }
-    else if (humanSelection == "scissors" && computerSelection == "Rock") {
-        computerScore++;
-        console.log("You lost that round!");
-    }
-    else if (humanSelection == "scissors" && computerSelection == "Paper") {
-        humanScore++;
-        console.log("You won that round.");
-    }
-    else if (humanSelection == "scissors" && computerSelection == "Scissors") {
-        console.log("It's a draw.");
+    else {
+        console.log("\nYou won!");
     }
     
 }
 
-let humanSelection = getHumanChoice();
+playGame();
 
-let computerSelection = getComputerChoice();
+// let humanSelection = getHumanChoice();
 
-playRound(humanSelection, computerSelection);
+// let computerSelection = getComputerChoice();
 
-humanSelection = getHumanChoice();
-computerSelection = getComputerChoice();
+// playRound(humanSelection, computerSelection);
 
-playRound(humanSelection, computerSelection);
+// humanSelection = getHumanChoice();
+// computerSelection = getComputerChoice();
 
-humanSelection = getHumanChoice();
-computerSelection = getComputerChoice();
+// playRound(humanSelection, computerSelection);
 
-playRound(humanSelection, computerSelection);
+// humanSelection = getHumanChoice();
+// computerSelection = getComputerChoice();
+
+// playRound(humanSelection, computerSelection);
 
 
-console.log(computerScore);
-console.log(humanScore);
-console.log(computerScore);
-console.log(humanScore)
+// console.log(computerScore);
+// console.log(humanScore);
+// console.log(computerScore);
+// console.log(humanScore)
