@@ -9,48 +9,43 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     let choice = prompt("Enter rock, paper, or scissors!")
-    return capitalizeFirstLetter(choice);
+    return choice.toLowerCase();
 }
 
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
-  
 
 function playRound(humanSelection, computerSelection) {
-
     
-    if (humanSelection == "Rock" && computerSelection == "Paper") {
+    if (humanSelection == "rock" && computerSelection == "Paper") {
         computerScore++;
         console.log("You lost that round!");
     }
-    else if (humanSelection == "Rock" && computerSelection == "Scissors") {
+    else if (humanSelection == "rock" && computerSelection == "Scissors") {
         humanScore++;
         console.log("You won that round.");
     }
-    else if (humanSelection == "Rock" && computerSelection == "Rock") {
+    else if (humanSelection == "rock" && computerSelection == "Rock") {
         console.log("It's a draw.");
     }
-    else if (humanSelection == "Paper" && computerSelection == "Scissors") {
+    else if (humanSelection == "paper" && computerSelection == "Scissors") {
         computerScore++;
         console.log("You lost that round!");
     }
-    else if (humanSelection == "Paper" && computerSelection == "Rock") {
+    else if (humanSelection == "paper" && computerSelection == "Rock") {
         humanScore++;
         console.log("You won that round.");
     }
-    else if (humanSelection == "Paper" && computerSelection == "Paper") {
+    else if (humanSelection == "paper" && computerSelection == "Paper") {
         console.log("It's a draw.");
     }
-    else if (humanSelection == "Scissors" && computerSelection == "Rock") {
+    else if (humanSelection == "scissors" && computerSelection == "Rock") {
         computerScore++;
         console.log("You lost that round!");
     }
-    else if (humanSelection == "Scissors" && computerSelection == "Paper") {
+    else if (humanSelection == "scissors" && computerSelection == "Paper") {
         humanScore++;
         console.log("You won that round.");
     }
-    else if (humanSelection == "Scissors" && computerSelection == "Scissors") {
+    else if (humanSelection == "scissors" && computerSelection == "Scissors") {
         console.log("It's a draw.");
     }
     
@@ -61,7 +56,15 @@ let humanSelection = getHumanChoice();
 let computerSelection = getComputerChoice();
 
 playRound(humanSelection, computerSelection);
+
+humanSelection = getHumanChoice();
+computerSelection = getComputerChoice();
+
 playRound(humanSelection, computerSelection);
+
+humanSelection = getHumanChoice();
+computerSelection = getComputerChoice();
+
 playRound(humanSelection, computerSelection);
 
 
