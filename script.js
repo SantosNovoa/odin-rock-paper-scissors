@@ -11,7 +11,29 @@ const winnerHuman = document.createElement("div");
 winnerHuman.classList.add("winnerHuman");
 
 const modal = document.getElementById("myModal");
-const span = document.getElementsByClassName("close")[0]
+const modalContent = document.querySelector(".modal-content");
+const modalWinnerComputer = document.createElement("div");
+modalWinnerComputer.classList.add("modalWinnerComputer");
+const modalWinnerHuman = document.createElement("div");
+modalWinnerHuman.classList.add("modalHuman");
+const span = document.getElementsByClassName("again")[0]
+const modalScore = document.createElement("div");
+modalScore.classList.add("modalScore");
+
+
+// prompts user to restart the game 
+span.onclick = function() {
+  modal.classList.remove("show");
+  buttons.forEach(function (button) {
+    button.disabled = false;
+  }); 
+
+// resetting scoreboard and removing the div dom objects.
+  humanScore = 0;
+  computerScore = 0;
+  terminalScreen.innerHTML = "";
+}
+
 
 terminalScreen.scrollTop = terminalScreen.scrollHeight;
 // function to autoscroll when new score data is outputted to the terminal
@@ -30,19 +52,25 @@ buttons.forEach((button) => {
     if (computerScore == 5) {
       winnerComputer.textContent = "\nComputer won.";
       terminalScreen.appendChild(winnerComputer);
-
+      modalWinnerComputer.textContent = "Computer won."
+      modalContent.appendChild(modalWinnerComputer);
+      modalScore.textContent = `Computer Score: ${computerScore}, Your score: ${humanScore}`
+      modalContent.appendChild(modalScore);
       buttons.forEach(function (button) {
         button.disabled = true;
       });
-      modal.style.display = "block";
+      modal.classList.add("show");
     } else if (humanScore == 5) {
       winnerHuman.textContent = "\nYou won!";
       terminalScreen.appendChild(winnerHuman);
-
+      modalWinnerHuman.textContent = "You won!"
+      modalContent.appendChild(modalWinnerHuman);
+      modalScore.textContent = `Computer Score: ${computerScore}, Your score: ${humanScore}`
+      modalContent.appendChild(modalScore);
       buttons.forEach(function (button) {
         button.disabled = true;
       });
-      modal.style.display = "block";
+      modal.classList.add("show");
     }
   });
 });

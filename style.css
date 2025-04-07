@@ -17,8 +17,8 @@ body {
     margin-left: auto;
     margin-right: auto;
     display: flex;
-    padding-top: 25px;
-    padding-bottom: 2%;
+    padding-top: 10%;
+    padding-bottom: 5%;
     gap: 40px;
   }
 
@@ -102,7 +102,7 @@ button:active {
 }
 
 .fakeMenu {
-  width: 650px;
+  width: 550px;
   box-sizing: border-box;
   height: 25px;
   background-color: #bbb;
@@ -114,19 +114,98 @@ button:active {
 .fakeScreen {
   background-color: #151515;
   box-sizing: border-box;
-  width: 650px;
+  width: 550px;
   margin: 0 auto;
   padding: 20px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  height: 700px;
+  height: 400px;
+  max-height: 400px;
+  overflow-y: auto;
   font-family: 'Courier New', monospace;
   color: #39FF14;
 }
 
 .choiceHistory {
- color: #cf3333;
+ color: #c2c0c0;
 }
-.winner {
+.winnerHuman {
   color: #028dff;
 }
+.winnerComputer {
+  color: red;
+}
+
+
+.modal {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+  /* display: none; Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 300px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px); /* Black w/ opacity */
+}
+
+.modal.show {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+/* Modal Content */
+.modal-content {
+  background: linear-gradient(145deg, #0e0e0e, #2b2b2b);
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 25%;
+  height: 25%;
+  font-size: 25px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column-reverse;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  animation: fadeIn 0.9s ease-out;
+}
+
+
+.modal-text {
+  color: #F0F6FC;
+}
+
+/* The Close Button */
+
+.again {
+  transition: transform 0.5s ease 0s;
+}
+
+.again:hover,
+.again:focus {
+  color: #39FF14;
+  text-decoration: none;
+  cursor: pointer;
+  transform: rotate(360deg);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+
