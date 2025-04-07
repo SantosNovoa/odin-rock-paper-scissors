@@ -32,14 +32,22 @@ span.onclick = function() {
   humanScore = 0;
   computerScore = 0;
   terminalScreen.innerHTML = "";
+  modalWinnerComputer.textContent = "";
+  modalWinnerHuman.textContent = "";
+  modalScore.textContent = "";
 }
 
 
-terminalScreen.scrollTop = terminalScreen.scrollHeight;
-// function to autoscroll when new score data is outputted to the terminal
-window.setInterval(function () {
-  terminalScreen.scrollTop = terminalScreen.scrollHeight;
-}, 100);
+// auto scrolling functions
+function isAtBottom(element) {
+  return element.scrollHeight - element.scrollTop <= element.clientHeight + 5;
+}
+
+function autoScrollIfAtBottom() {
+  if (isAtBottom(terminalScreen)) {
+    terminalScreen.scrollTop = terminalScreen.scrollHeight;
+  }
+}
 
 // looping through all buttons to select them
 buttons.forEach((button) => {
@@ -47,6 +55,7 @@ buttons.forEach((button) => {
     humanSelection = `${button.className}`;
     let computerSelection = getComputerChoice();
     playRound(humanSelection, computerSelection);
+    autoScrollIfAtBottom();
 
     // determines winner and disables the buttons once either user or computer has reached 5 wins
     if (computerScore == 5) {
