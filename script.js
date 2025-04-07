@@ -1,23 +1,22 @@
 
 let humanSelection = "";
-
+// dom objects
 const buttons = document.querySelectorAll("button");
-
-
 const terminalScreen = document.querySelector(".fakeScreen");
+const winnerComputer = document.createElement("div");
+winnerComputer.classList.add("winnerComputer");
+const winnerHuman = document.createElement("div");
+winnerHuman.classList.add("winnerHuman");
 
 terminalScreen.scrollTop = terminalScreen.scrollHeight;
-
 // function to autoscroll when new score data is outputted to the terminal
 window.setInterval(function() {
   terminalScreen.scrollTop = terminalScreen.scrollHeight;
 }, 100);
 
-const winnerComputer = document.createElement("div");
-winnerComputer.classList.add("winnerComputer");
 
-const winnerHuman = document.createElement("div");
-winnerHuman.classList.add("winnerHuman");
+
+
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
